@@ -4,9 +4,7 @@ A clean, responsive developer portfolio built with **semantic HTML**, a **CSS cu
 
 ## Live URL
 
-🔗 **https://hamsashaikh-source.github.io/devfolio/**
-
-> Replace `hamsashaikh-source` with your actual GitHub username after deploying.
+🔗 **https://hamzashaikh-source.github.io/devfolio/**
 
 ---
 
