@@ -1,0 +1,277 @@
+/* ========================================
+   Colour + Type System (CSS Variables)
+   ======================================== */
+:root {
+  /* Colours */
+  --brand: #2563eb;
+  --brand-dark: #1d4ed8;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --surface: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --footer-bg: #0f172a;
+  --footer-text: #cbd5e1;
+
+  /* Typography */
+  --font-main: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Code", "Fira Code", monospace;
+
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /* Misc */
+  --radius: 0.5rem;
+  --max-width: 960px;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--ink);
+  background-color: var(--surface);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  color: var(--brand-dark);
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+/* ========================================
+   Header — Flexbox
+   ======================================== */
+.site-header {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;                    /* ← Flexbox row */
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--brand);
+}
+
+.nav-list {
+  display: flex;                    /* ← Flexbox row for nav links */
+  gap: var(--space-lg);
+}
+
+.nav-list a {
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-list a:hover {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+/* ========================================
+   About
+   ======================================== */
+.about h1 {
+  margin-bottom: var(--space-md);
+  color: var(--brand);
+}
+
+.about p {
+  max-width: 640px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* ========================================
+   Projects — CSS Grid
+   ======================================== */
+.projects {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-grid {
+  display: grid;                                    /* ← CSS Grid */
+  grid-template-columns: 1fr;                      /* 1 column mobile default */
+  gap: var(--space-lg);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+
+.card-body {
+  padding: var(--space-lg);
+}
+
+.card-body h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.card-body p {
+  color: var(--muted);
+  margin-bottom: var(--space-md);
+}
+
+.card-body a {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.site-footer h2 {
+  color: #ffffff;
+  margin-bottom: var(--space-lg);
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.contact-list a {
+  color: var(--footer-text);
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.contact-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.copy {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ========================================
+   Responsive — @media (min-width: 768px)
+   ======================================== */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);          /* 2 columns on tablet+ */
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);          /* stays 2 cols, wider cards */
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+}
+
+/* Small-screen nav: hide text on very small screens */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .nav-list {
+    gap: var(--space-md);
+  }
+
+  .nav-list a {
+    font-size: 0.85rem;
+  }
+}
